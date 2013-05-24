@@ -1,5 +1,4 @@
-
-# Hosting of Golum in Phusion Passenger.
+# Hosting of Golum in Phusion Passenger
 
 Copy and Fix `config.ru`
 
@@ -8,9 +7,9 @@ $ cp config.ru.example config.ru
 $ vi config.ru
 ```
 
-*config.ru*
+Fix `gollum_path` in `config.ru`
 
-```
+```ruby
 gollum_path = '/path/to/your-repo'
 ```
 
@@ -20,9 +19,9 @@ Bundler
 $ bundle install --path=vendor/bondle
 ```
 
-Fix Apache Conf File
+Fix Apache conf file
 
-```
+```console
 $ sudo vi /etc/httpd/conf.d/golum.conf
 <VirtualHost *:80>
 	ServerName		gollum.example.net:80
