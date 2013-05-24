@@ -1,1 +1,4 @@
 /config.ru
+/Gemfile.lock
+/.bundle
+/vendor
