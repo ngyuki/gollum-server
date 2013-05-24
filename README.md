@@ -1,5 +1,12 @@
 # Hosting of Golum in Phusion Passenger
 
+Clone `ngyuki/gollum-server`
+
+```console
+$ git clone git@github.com:ngyuki/gollum-server.git --recursive
+$ cd gollum-server
+```
+
 Copy and Fix `config.ru`
 
 ```console
@@ -39,4 +46,10 @@ $ sudo vi /etc/httpd/conf.d/golum.conf
 		Allow from all
 	</Directory>
 </VirtualHost>
+```
+
+Restart Apache
+
+```console
+$ sudo service httpd restart
 ```
