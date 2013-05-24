@@ -1,0 +1,3 @@
+[submodule "gollum"]
+	path = gollum
+	url = https://github.com/gollum/gollum.git

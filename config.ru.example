@@ -1,0 +1,22 @@
+# coding: utf-8
+
+require 'gollum/app'
+
+gollum_path = File.expand_path(File.dirname(__FILE__)) # CHANGE THIS TO POINT TO YOUR OWN WIKI REPO
+
+Precious::App.set(:gollum_path, gollum_path)
+Precious::App.set(:default_markup, :markdown)
+Precious::App.set(:wiki_options, {
+  :css           => true,
+  :js            => true,
+  :live_preview  => false,
+  :mathjax       => false,
+  :user_icons    => :gravatar,
+  :show_all      => false,
+  :collapse_tree => false,
+  :h1_title      => true,
+  :universal_toc => true,
+  :repo_is_bare  => true,
+})
+
+run Precious::App
