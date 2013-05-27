@@ -3,7 +3,7 @@
 Clone `ngyuki/gollum-server`
 
 ```console
-$ git clone git@github.com:ngyuki/gollum-server.git --recursive
+$ git clone https://github.com/ngyuki/gollum-server.git --recursive
 $ cd gollum-server
 ```
 
