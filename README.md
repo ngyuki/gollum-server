@@ -53,3 +53,8 @@ Restart Apache
 ```console
 $ sudo service httpd restart
 ```
+
+# Changes from upstream
+
+- Fixed: Error in edit view, when include non-ASCII characters in the header or footer.
+- Fixed: TOC is Garbage characters, when include non-ASCII characters.
