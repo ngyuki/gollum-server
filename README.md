@@ -59,3 +59,4 @@ $ sudo service httpd restart
 - Fixed: Error in edit view, when include non-ASCII characters in the header or footer.
 - Fixed: TOC is Garbage characters, when include non-ASCII characters.
 - Fixed: Layout of sidebar is broken in preview.
+- Hide buttons in Preview.
