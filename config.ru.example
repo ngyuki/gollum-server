@@ -16,7 +16,6 @@ Precious::App.set(:wiki_options, {
   :collapse_tree => false,
   :h1_title      => true,
   :universal_toc => true,
-  :repo_is_bare  => true,
 })
 
 run Precious::App
