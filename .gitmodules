@@ -1,3 +1,6 @@
 [submodule "gollum"]
 	path = gollum
-	url = https://github.com/gollum/gollum.git
+	url = https://github.com/ngyuki/gollum.git
+[submodule "gollum-lib"]
+	path = gollum-lib
+	url = https://github.com/ngyuki/gollum-lib.git
