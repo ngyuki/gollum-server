@@ -60,3 +60,4 @@ $ sudo service httpd restart
 - Fixed: TOC is Garbage characters, when include non-ASCII characters.
 - Fixed: Layout of sidebar is broken in preview.
 - Hide buttons in Preview.
+- Setting Author from Cookie. (shit function)
