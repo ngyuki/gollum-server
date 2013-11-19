@@ -9,7 +9,7 @@ Precious::App.set(:default_markup, :markdown)
 Precious::App.set(:wiki_options, {
   :css           => true,
   :js            => true,
-  :live_preview  => false,
+  :live_preview  => true,
   :mathjax       => false,
   :user_icons    => :gravatar,
   :show_all      => false,
