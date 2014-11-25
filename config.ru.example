@@ -9,13 +9,14 @@ Precious::App.set(:default_markup, :markdown)
 Precious::App.set(:wiki_options, {
   :css           => true,
   :js            => true,
-  :live_preview  => true,
+  :live_preview  => false,
   :mathjax       => false,
   :user_icons    => :gravatar,
   :show_all      => false,
   :collapse_tree => false,
   :h1_title      => true,
   :universal_toc => true,
+  :allow_editing => true,
 })
 
 run Precious::App
