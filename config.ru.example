@@ -1,6 +1,8 @@
 # coding: utf-8
 
 require 'gollum/app'
+require 'omnigollum'
+require 'omniauth-ldap'
 
 gollum_path = File.expand_path(File.dirname(__FILE__)) # CHANGE THIS TO POINT TO YOUR OWN WIKI REPO
 
@@ -18,5 +20,25 @@ Precious::App.set(:wiki_options, {
   :universal_toc => true,
   :allow_editing => true,
 })
+
+options = {
+  :providers => Proc.new do
+    provider :ldap,
+      :host => '127.0.0.1',
+      :port => 389,
+      :method => :plain,
+      :base => 'dc=example,dc=com',
+      :uid => 'uid',
+      :bind_dn => 'cn=manager,dc=example,dc=com',
+      :password => 'secret'
+    end,
+  :dummy_auth => false,
+  :protected_routes => ['/*'],
+  :author_format => Proc.new { |user| user.name },
+}
+
+Precious::App.enable :session
+Precious::App.set(:omnigollum, options)
+Precious::App.register Omnigollum::Sinatra
 
 run Precious::App

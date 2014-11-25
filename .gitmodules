@@ -4,3 +4,6 @@
 [submodule "gollum-lib"]
 	path = gollum-lib
 	url = https://github.com/ngyuki/gollum-lib.git
+[submodule "omnigollum"]
+	path = omnigollum
+	url = https://github.com/arr2036/omnigollum.git
