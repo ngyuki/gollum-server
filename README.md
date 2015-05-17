@@ -1,4 +1,4 @@
-# Hosting of Golum in Phusion Passenger
+# Hosting of Golum on CentOS 6
 
 Clone `ngyuki/gollum-server`
 
@@ -26,38 +26,23 @@ Bundler
 $ bundle install --path=vendor/bondle
 ```
 
-Fix Apache conf file
+Create upstart config
 
 ```console
-$ sudo vi /etc/httpd/conf.d/golum.conf
-<VirtualHost *:80>
-	ServerName		gollum.example.net:80
-	ServerAlias		gollum.*
-
-	ErrorLog		logs/gollum-error_log
-	CustomLog		logs/gollum-access_log combined
-
-	DocumentRoot		/path/to/gollum-server/gollum/lib/gollum/public/gollum
-	PassengerAppRoot	/path/to/gollum-server
-
-	<Directory /path/to/gollum-server/gollum/lib/gollum/public/gollum>
-		AllowOverride All
-		Order allow,deny
-		Allow from all
-	</Directory>
-</VirtualHost>
+$ cat <<EOS> /etc/init/gollum.conf
+start on runlevel [2345]
+stop on runlevel [!2345]
+respawn
+env PATH=$(rbenv prefix)/bin:/usr/local/bin:/bin:/usr/bin
+chdir $PWD
+exec su git -c "bundle exec thin -p 3000 -e production start"
+EOS
 ```
 
-Restart Apache
+Start gollum with upstart
 
 ```console
-$ sudo service httpd restart
+$ sudo initctl reload-configuration
+$ sudo initctl start gollum
+$ sudo initctl status gollum
 ```
-
-# Changes from upstream
-
-- Fixed: Error in edit view, when include non-ASCII characters in the header or footer.
-- Fixed: TOC is Garbage characters, when include non-ASCII characters.
-- Fixed: Layout of sidebar is broken in preview.
-- Hide buttons in Preview.
-- Setting Author from Cookie. (shit function)
