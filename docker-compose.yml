@@ -6,5 +6,28 @@ services:
     ports:
       - 3000:3000
     volumes:
-      - ./config.ru:/app/config.ru:ro
       - ./wiki.git/:/wiki.git/:rw
+    environment:
+      GOLLUM_CONFIG: |
+        require 'gollum/app'
+
+        gollum_path = '/wiki.git'
+
+        Precious::App.set(:gollum_path, gollum_path)
+        Precious::App.set(:default_markup, :markdown)
+        Precious::App.set(:wiki_options, {
+          :css           => true,
+          :js            => true,
+          :live_preview  => false,
+          :mathjax       => false,
+          :user_icons    => :gravatar,
+          :show_all      => false,
+          :collapse_tree => false,
+          :h1_title      => true,
+          :universal_toc => true,
+          :allow_editing => true,
+        })
+
+        Precious::App.enable :session
+
+        run Precious::App

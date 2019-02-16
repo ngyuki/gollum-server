@@ -19,4 +19,5 @@ COPY omnigollum/ /app/omnigollum/
 
 EXPOSE 3000
 
-CMD ["bundle", "exec", "thin", "-p", "3000", "-e", "production", "start"]
+COPY docker/startup.sh /startup.sh
+CMD ["/startup.sh"]
