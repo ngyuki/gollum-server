@@ -1,0 +1,10 @@
+version: "2"
+
+services:
+  gollum:
+    build: .
+    ports:
+      - 3000:3000
+    volumes:
+      - ./config.ru:/app/config.ru:ro
+      - ./wiki.git/:/wiki.git/:rw

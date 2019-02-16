@@ -1,0 +1,5 @@
+.git/
+vendor/
+gollum/test/
+gollum-lib/test/
+wiki.git/
