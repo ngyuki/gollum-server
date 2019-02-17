@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/bin/sh
 
-if [ ! -e /app/config.ru -a -v GOLLUM_CONFIG ]; then
+if [ ! -e /app/config.ru -a -n "$GOLLUM_CONFIG" ]; then
   echo "$GOLLUM_CONFIG" > /app/config.ru
 fi
 
